@@ -1,0 +1,211 @@
+/* 版心公用 */
+.container-md{
+    width: 1080px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* background-color: #dddddd; */
+}
+html,
+body,
+.header-wrap,
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide,
+.hero-bg{
+    width:100%;
+    height: 100%;
+}
+/* 背景图片比较大  居中 背景位置  大小适配整个屏幕  背景尺寸 */
+.hero-bg{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.header-wrap{
+    position: relative;
+}
+
+.global-navigation-wrap{
+    z-index: 99;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding-top:1vmax;
+    padding-bottom:1vmax;
+}
+/* logo */
+.logo-links{
+    float: left;
+    margin-top:8px
+}
+/* nav */
+.nav-links{
+    float: right;
+}
+.nav-links li{
+    position: relative;
+    float: left;
+    line-height:40px;
+    font-size:16px;
+}
+.nav-links li a{
+    display: block;
+    padding:8px 20px; /* a的鼠标点击区域变大一点*/
+    color:#fff;
+}
+.nav-links li .nav-links-product{
+    /* 把产品的鼠标小手去掉 pointer 小手  default 没有小手的默认鼠标形状 */
+    cursor: default;
+}
+.nav-links-layer{
+    display: none;
+    position: absolute;
+    top:70px;
+    left:0;
+    width: 240px;
+    height: 204px;
+    padding-top:15px;
+    background: #fff;
+    border-radius:4px;
+}
+.nav-links-layer::before{
+    position: absolute;
+    top:-19px;
+    left:24px;
+    content: "";
+    display: block;
+    width:0;
+    border-width:10px 10px 10px 10px;
+    border-style:solid solid solid solid;
+    border-color:transparent transparent #fff  transparent;
+}
+.nav-links li:hover .nav-links-layer{
+    display: block;
+}
+/* 文字 */
+.hero-landing{
+    z-index:99;
+    position: absolute;
+    top:50%;
+    width:100%;
+    height: 146px;
+    margin-top:-73px;
+    animation: color 5s ease infinite alternate;
+}
+.hero-txt{
+    font-size:420%;
+    margin-bottom: 20px;
+}
+.hero-btn{
+    color:#fff;
+    padding:14px 26px;
+    font-size: 22px;
+    background: rgba(0,0,0,.6);
+    border-radius: 4px;
+}
+@keyframes color{
+    0%{color:#fff}
+    50%{color:#fff}
+    51%{color:#000}
+    100%{color:#000}
+}
+/* 新闻 */
+.news-wrap{
+    z-index:99;
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    padding:10px 0;
+    background-color: rgba(0,0,0,.4);
+    color:#fff;
+    font-size:16px;
+}
+.news-wrap span{
+    padding:0 10px;
+    /* linear-gradient(方位，color1,color2...) 线性渐变 CSS3 一个颜色  再到一个颜色的过渡  */
+    background: linear-gradient(to bottom, #ec614f 0%, #ff2e2e 100%);
+    border-radius: 4px;
+}
+/* 全屏图片模块 */
+.hero-wrap{
+    margin-left:-2px;
+    margin-top:2px;
+}
+.hero-product{
+    float: left;
+    width: 25%;
+    height: 260px;
+    border-left:2px solid #fff;
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+    /* 只把padding和borer计算进去   千万不要margin去写图片之间的间距 */
+    box-sizing: border-box;
+}
+.hero-wrap h3{
+    text-align: center;
+    color:#fff;
+    font-size:24px;
+    padding-top:60px;
+    font-weight: normal;
+}
+/* 全屏图标模块  text-align    文本对齐 => display:inline-block去现实在一行显示  => 基线对齐 vertical-align:middle => 图片: 背景尺寸   cover(超出截断) -> contain(留白 填充不满)
+ */
+.meta-links{
+    border-bottom:1px solid #000;
+}
+.meta-link{
+    float: left;
+    width: 33.33%;
+    padding:30px 0;
+}
+.meta-link .icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* cover 等比例缩放(水平和垂直)到同时触碰到容器边缘的时候，会出现超出的情况  截掉一部分 
+       contain 等比例缩放(水平和垂直) 只要有一个方向触碰到容器边缘的时候，出现留白的情况
+    */
+}
+.meta-link .txt{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+.meta-link:nth-child(1){
+    text-align: left;
+}
+.meta-link:nth-child(2){
+    text-align: center;
+}
+.meta-link:nth-child(3){
+    text-align: right;
+}
+
+/* PAD */
+@media screen and (max-width:1080px){
+    .container-md{width:100%}
+    .nav-links{display: none;}
+    .hero-product{width: 50%;margin-bottom:2px}
+}
+
+/* 手机端 */
+@media screen and (max-width:640px){
+    .hero-product{width: 100%;}
+    .meta-link{width:100%;padding:15px 0;}
+    .meta-link:nth-child(2),.meta-link:nth-child(3){text-align: left;}
+}
+
+
+
+/* 1.白色 - 透明   黑色 - 透明  交替
+   2.#fff - #000 之间  多加几个关键帧
+   3.在关键帧多加一些关键帧   => 两个颜色切换的关键帧之间的间隔小一点
+*/
